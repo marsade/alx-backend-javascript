@@ -6,5 +6,5 @@ export default function createIteratorObject(report) {
     repoArray = [...repoArray, ...report.allEmployees[department]];
   });
 
-  return repoArray
+  return repoArray;
 }
