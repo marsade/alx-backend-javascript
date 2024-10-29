@@ -1,6 +1,6 @@
 export const weakMap = new WeakMap();
 
-export default function queryAPI(obj) {
+export function queryAPI(obj) {
   if (!weakMap.has(obj)) {
     weakMap.set(obj, 0);
   }
