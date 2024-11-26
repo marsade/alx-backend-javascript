@@ -7,23 +7,22 @@ function countStudents (path) {
     const data = fs.readFileSync(path, 'utf8');
     const students = data.split('\n').slice(1);
     const count = students.length;
-    
-      for (const index of students) {
-        if (index.includes('CS')) {
-          csStudents.push(index.split(',')[0]);
-        } else if (index.includes('SWE')) {
-          sweStudents.push(index.split(',')[0]);
-        }
-      }
 
-      console.log(`Number of students: ${count}`);
-      console.log(`Number of students in CS: ${csStudents.length}. List: ${csStudents.join(', ')}`);
-      console.log(`Number of students in SWE: ${sweStudents.length}. List: ${sweStudents.join(', ')}`);
-    } catch (error) {
-    throw Error('Cannot load the database')
+    for (const index of students) {
+      if (index.includes('CS')) {
+        csStudents.push(index.split(',')[0]);
+      } else if (index.includes('SWE')) {
+        sweStudents.push(index.split(',')[0]);
+      }
+    }
+
+    console.log(`Number of students: ${count}`);
+    console.log(`Number of students in CS: ${csStudents.length}. List: ${csStudents.join(', ')}`);
+    console.log(`Number of students in SWE: ${sweStudents.length}. List: ${sweStudents.join(', ')}`);
+  } catch (error) {
+    throw Error('Cannot load the database');
   }
 }
-
 
 // Example usage
 countStudents('database.csv');
