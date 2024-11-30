@@ -1,4 +1,5 @@
-const fs = require('node:fs');
+const fs = require('fs');
+
 function countStudents (path) {
   const csStudents = [];
   const sweStudents = [];
@@ -24,6 +25,4 @@ function countStudents (path) {
   }
 }
 
-// Example usage
-countStudents('database.csv');
 module.exports = countStudents;
