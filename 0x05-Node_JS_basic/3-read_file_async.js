@@ -9,11 +9,11 @@ function countStudents(path) {
         } else {
           const students = data.split('\n').slice(1);
           const count = students.length - 1;
-          const csStudents = students.filter(student => student.includes('CS')).map(
-            student => student.split(',')[0]
+          const csStudents = students.filter((student) => student.includes('CS')).map(
+            (student) => student.split(',')[0],
           );
-          const sweStudents = students.filter(student => student.includes('SWE')).map(
-            student => student.split(',')[0]
+          const sweStudents = students.filter((student) => student.includes('SWE')).map(
+            (student) => student.split(',')[0],
           );
 
           console.log(`Number of students: ${count}`);
