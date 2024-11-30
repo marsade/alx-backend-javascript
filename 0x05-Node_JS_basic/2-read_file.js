@@ -7,7 +7,7 @@ function countStudents(path) {
   try {
     const data = fs.readFileSync(path, 'utf8');
     const students = data.split('\n').slice(1);
-    const count = students.length;
+    const count = students.length - 1;
 
     for (const index of students) {
       if (index.includes('CS')) {
@@ -26,3 +26,5 @@ function countStudents(path) {
 }
 
 module.exports = countStudents;
+
+countStudents('./database.csv')
