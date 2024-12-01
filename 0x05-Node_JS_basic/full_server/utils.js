@@ -1,6 +1,6 @@
 const { readFile } = require('fs');
 
-module.exports = function readDatabase(path) {
+function readDatabase(path) {
   return new Promise((resolve, reject) => {
     const res = {};
     readFile(path, 'utf8', (err, data) => {
@@ -22,3 +22,5 @@ module.exports = function readDatabase(path) {
     });
   });
 }
+
+module.exports = readDatabase;
