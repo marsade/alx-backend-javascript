@@ -1,18 +1,18 @@
-const { readDatabase } = require('./utils');
+const readDatabase = require('../utils');
 module.exports = class StudentsController {
   static getAllStudents(request, response) {
-    response.send('This is the list of our students\n');
     readDatabase(process.argv[2].toString()).then((res) => {
-      response.status(200);
+      let output = 'This is the list of students\n';
       Object.entries(res).forEach(([course, students]) => {
-        response.send(`Number of students in ${course}: ${students.length}. List: ${students.join(', ')}\n`);
+        output += `Number of students in ${course}: ${students.length}. List: ${students.join(', ')}\n`;
       });
+      response.status(200).send(output.trim());
     }).catch(() => {
       response.status(500).send('Cannot load the database');
     })
   }
 
-  static getStudentByMajor(request, response) {
+  static getAllStudentsByMajor(request, response) {
     let major = request.params.major;
     readDatabase(process.argv[2].toString()).then((res) => {
       if (!(major in res)) {
